@@ -10,23 +10,40 @@ export const fetchAsDataUrl = async (url: string): Promise<string> => {
 
     const blob = await response.blob();
 
-    return new Promise((resolve, reject) => {
-        const reader = new FileReader();
-        reader.onloadend = () => resolve(reader.result as string);
-        reader.onerror = reject;
-        reader.readAsDataURL(blob);
-    });
+    // Infer MIME type from URL extension if blob.type is empty
+    let mimeType = blob.type;
+
+    if (!mimeType || mimeType === "application/octet-stream") {
+        if (url.endsWith(".png")) mimeType = "image/png";
+        else if (url.endsWith(".webp")) mimeType = "image/webp";
+        else mimeType = "image/jpeg"; // fallback default
+    }
+
+    const arrayBuffer = await blob.arrayBuffer();
+    const base64 = btoa(
+        new Uint8Array(arrayBuffer)
+            .reduce((data, byte) => data + String.fromCharCode(byte), "")
+    );
+
+    return `data:${mimeType};base64,${base64}`;
 };
 
 export const generate3DView = async ({ sourceImage }: Generate3DViewParams) => {
-    const dataUrl = sourceImage.startsWith('data:')
-        ? sourceImage
-        : await fetchAsDataUrl(sourceImage);
+    let dataUrl = sourceImage;
 
-    const base64Data = dataUrl.split(',')[1];
-    const mimeType = dataUrl.split(';')[0].split(':')[1];
+// If it's a hosted URL, convert it to base64
+    if (!sourceImage.startsWith("data:")) {
+        dataUrl = await fetchAsDataUrl(sourceImage);
+    }
 
-    if(!mimeType || !base64Data) throw new Error('Invalid source image payload');
+    const match = dataUrl.match(/^data:(image\/[a-zA-Z0-9+.-]+);base64,/);
+    const mimeType = match ? match[1] : null;
+    const base64Data = dataUrl.split(",")[1];
+
+    if (!mimeType || !base64Data) {
+        console.error("Bad Data URL:", dataUrl.slice(0, 60));
+        throw new Error("Invalid source image payload");
+    }
 
     const response = await puter.ai.txt2img(ROOMIFY_RENDER_PROMPT, {
         provider: "gemini",

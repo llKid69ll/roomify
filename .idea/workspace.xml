@@ -5,9 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d5d32a7-16a9-439b-8a75-de10777d44b3" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/lib/ai.action.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/puter.worker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/routes/visualizer.$id.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/routes/visualizer.$id.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/ai.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/ai.action.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/puter.action.ts" beforeDir="false" afterPath="$PROJECT_DIR$/lib/puter.action.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +71,7 @@
       <option name="presentableId" value="Default" />
       <updated>1771257682477</updated>
       <workItem from="1771257683438" duration="26952000" />
-      <workItem from="1771687561648" duration="10283000" />
+      <workItem from="1771687561648" duration="29672000" />
     </task>
     <servers />
   </component>
@@ -95,15 +98,39 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/lib/puter.action.ts</url>
-          <line>8</line>
+          <line>9</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/app/routes/visualizer.$id.tsx</url>
-          <line>53</line>
+          <line>106</line>
           <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lib/puter.worker.js</url>
+          <line>2</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lib/puter.action.ts</url>
+          <line>104</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/app/routes/visualizer.$id.tsx</url>
+          <line>57</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/lib/puter.action.ts</url>
+          <line>19</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
